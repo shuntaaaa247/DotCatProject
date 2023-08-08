@@ -75,8 +75,9 @@ contract DotCatNFT is ERC721URIStorage {
         return(
             abi.encodePacked(
                 '{"image": "data:image/svg+xml;base64,', Base64.encode(catSvg), '", ',
-                '"attributes": [{"level": "', Strings.toString(idToCatStatus[tokenId].level), '", "offensive power": "', Strings.toString(idToCatStatus[tokenId].offensivePower), '", ',
-                '"Physical Strength": "', Strings.toString(idToCatStatus[tokenId].physicalStrength), '",}]}'
+                '"attributes": [{"trait_type": "level", "value": ', Strings.toString(idToCatStatus[tokenId].level), 
+                '}, {"trait_type": "offensive power", "value": ', Strings.toString(idToCatStatus[tokenId].offensivePower),
+                '}, {"trait_type": "Physical Strength", "value": ', Strings.toString(idToCatStatus[tokenId].physicalStrength), '}]}'
             )
         );
     }
@@ -86,7 +87,6 @@ contract DotCatNFT is ERC721URIStorage {
         dotCatCoin.mint(msg.sender, amount);
     }
 
-    // 未完成
     function levelUp(uint256 tokenId) public {
         require(ownerOf(tokenId) == msg.sender);
 

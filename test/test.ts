@@ -115,6 +115,5 @@ const restoreInfoFromUri = (uri: string) => {
   const encodedSvg: string = imageUri.split(",")[1];
   const svg: string = atob(encodedSvg);//base64でデコード
 
-  console.log(`レベル：${level} 攻撃力：${offensivePower} 体力：${physicalStrengh}`);
   console.log(`SVG:${svg}`);
 }
